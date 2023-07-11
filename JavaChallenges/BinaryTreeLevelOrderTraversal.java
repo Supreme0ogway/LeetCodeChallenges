@@ -1,5 +1,5 @@
-//Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
 /**
+ * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
@@ -18,34 +18,32 @@ import java.util.*;
 
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (root == null) {
-            return result;
+        List<List<Integer>> bl = new ArrayList<>();
+        
+        if(root == null) {
+            return bl;
         }
         
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            List<Integer> currentLevel = new ArrayList<>();
-            
-            for (int i = 0; i < levelSize; i++) {
-                TreeNode node = queue.poll();
-                currentLevel.add(node.val);
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);//adds to back
+ 
+        while(!q.isEmpty()) {
+            List<Integer> l = new ArrayList<>();
+            int size = q.size();
+
+            for(int i = 0; i < size; i++) {
+                TreeNode node = q.poll();//ppulls from front head
+                l.add(node.val);
                 
-                if (node.left != null) {
-                    queue.offer(node.left);
+                if(node.left != null) {
+                    q.offer(node.left);
                 }
-                
-                if (node.right != null) {
-                    queue.offer(node.right);
+                if(node.right != null) {
+                    q.offer(node.right);
                 }
             }
-            
-            result.add(currentLevel);
+            bl.add(l);
         }
-        
-        return result;
+        return bl;
     }
 }
