@@ -12,7 +12,7 @@ class Solution {
         
         return check(n);
     }
-    
+     
     public boolean check(double n) {
         boolean is = false;
         if(n == 3.0) {
