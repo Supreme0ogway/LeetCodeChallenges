@@ -1,3 +1,64 @@
+// Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+ 
+
+// Example 1:
+
+
+// Input: head = [1,2,2,1]
+// Output: true
+// Example 2:
+
+
+// Input: head = [1,2]
+// Output: false
+
+
+//second solution
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        String totalString = "";
+        ListNode l = head;
+        while(l != null) {
+            totalString += String.valueOf(l.val);
+            l = l.next;
+        }
+        
+        String fh = "";
+        String sh = "";
+        if(totalString.length() % 2 == 0) {
+            fh = totalString.substring(0, totalString.length() /2);
+            sh = totalString.substring(totalString.length()/2);
+        } else {
+            fh = totalString.substring(0, totalString.length()/2);
+            sh = totalString.substring((totalString.length()/2) + 1);
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < sh.length(); i++) {
+            sb.append(sh.charAt(i));
+        }
+        sb.reverse();
+        
+        //check
+        if(fh.equals(sb.toString())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
