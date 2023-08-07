@@ -31,6 +31,7 @@ class Solution {
             List<Integer> l = new ArrayList<>();
             int size = q.size();
 
+            //left to rigth traversal
             for(int i = 0; i < size; i++) {
                 TreeNode node = q.poll();//ppulls from front head
                 l.add(node.val);

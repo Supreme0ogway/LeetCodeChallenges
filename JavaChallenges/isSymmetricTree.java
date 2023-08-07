@@ -30,7 +30,7 @@ class Solution {
         if (left == null || right == null || left.val != right.val) {
             return false;
         }
-        
+        //LL, RR && LR, RL
         return isMirror(left.left, right.right) && isMirror(left.right, right.left);
     }
 }

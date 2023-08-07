@@ -9,6 +9,22 @@ elements denote the elements that should be merged, and the last n elements are 
 be ignored. nums2 has a length of n.
 */
 
+
+//better way:
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int id = 0;
+        for(int i = m; i < m+n; i++) {
+            nums1[i] = nums2[id];
+            id++;
+        }
+        Arrays.sort(nums1);
+    }
+}
+
+//old way
+//merge then sort
+
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         //move all nums1 elements to front

@@ -2,6 +2,10 @@
 
 // Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
+//n = 1 2 3 .... if <= 2 return
+//otherwise
+// use the for loop as a calculation
+
 class Solution {
     public int climbStairs(int n) {
         if(n <=2) {
