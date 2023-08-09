@@ -4,6 +4,7 @@
 
 // Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
+//second version
 class Solution {
     public int maxProfit(int[] prices) {
         int minPrice = Integer.MAX_VALUE; // Initialize the minimum price to a large value
