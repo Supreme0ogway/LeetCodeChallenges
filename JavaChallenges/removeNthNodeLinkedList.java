@@ -13,7 +13,7 @@
 // Output: []
 
 
-
+//remember to go backwards
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         int size = 1;
