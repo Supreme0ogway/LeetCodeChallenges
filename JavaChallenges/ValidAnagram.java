@@ -36,3 +36,53 @@ class Solution {
         return true;
     }
 }
+
+//another way
+//********************* check for valid anogram (same length, diff word same letters********************************
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        
+        if(s.length() != t.length()) {
+            return false;
+        }
+        
+        char[] first = s.toCharArray();
+        char[] second = t.toCharArray();
+        
+        Arrays.sort(first);
+        Arrays.sort(second);
+        
+        return Arrays.equals(first, second);
+    }
+}
+
+//another way
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length() != t.length()) {
+            return false;
+        }
+
+        List<Character> l = new ArrayList<>();
+        //add all of s to a list
+        for(int i = 0; i < s.length(); i++) {
+            l.add(s.charAt(i));
+        }
+        //check if what is seen at index i in t is contained in the list of s
+
+        for(int i = 0; i < s.length(); i++) {//must be string.length not l.size() size of l is different
+            if(l.contains(t.charAt(i))) {
+                l.remove((Character) t.charAt(i));//need to cast to character
+            } else {
+                return false;
+            }
+        }
+
+        return true;
+        //if not return false
+        //if so remove from s
+
+        //return true
+    }
+}
