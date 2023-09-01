@@ -35,3 +35,23 @@ class Solution {
         return nums;
     }
 }
+
+
+//second attempt (better)
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        //have i and j. i is fixed j searches after i
+        //check if i + j = target return [i,j]
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = i+1; j < nums.length; j++) {
+                int total = nums[i] + nums[j];
+                if(total == target) {
+                    int[] arr = {i, j};
+                    return arr;
+                }
+            }
+        }
+        return nums;
+    }
+}
