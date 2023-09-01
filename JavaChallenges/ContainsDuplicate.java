@@ -21,3 +21,22 @@ class Solution {
         return false;
     }
 }
+
+
+
+//second way of doing the same thing done later sep 1 2023
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+
+        for(int i : nums) {
+            if(set.add(i)) {
+                System.out.println(i);
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+}
