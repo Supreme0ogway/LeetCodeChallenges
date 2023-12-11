@@ -52,3 +52,27 @@ class Solution {
         return Math.max(leftDepth, rightDepth) + 1;
     }
 }
+
+//ANOTHER SOLUCATION (SAME)
+
+class Solution {
+    int diameter = 0;
+
+    public int diameterOfBinaryTree(TreeNode root) {
+        calcD(root);
+        return diameter;
+    }
+
+    private int calcD(TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+
+        int ld = calcD(root.left);
+        int rd = calcD(root.right);
+
+        diameter = Math.max(diameter, ld + rd);
+
+        return Math.max(ld, rd) + 1;//always 1
+    }
+}
